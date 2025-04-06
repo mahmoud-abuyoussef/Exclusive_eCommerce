@@ -1,5 +1,5 @@
-import PageLayout from "./components/layouts/PageLayout";
 import Home from "./components/pages/Home";
+import PageLayout from "./components/layouts/PageLayout";
 import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
