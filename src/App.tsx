@@ -1,4 +1,5 @@
 import PageLayout from "./components/layouts/PageLayout";
+import Home from "./components/pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
@@ -7,8 +8,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<PageLayout />}>
-            <Route path="/" element={<div>Home</div>} />
-            <Route path="/about" element={<div>About</div>} />
+            <Route path="/" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

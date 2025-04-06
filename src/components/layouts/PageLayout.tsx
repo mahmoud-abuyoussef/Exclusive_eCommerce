@@ -8,23 +8,28 @@ import { useTranslation } from "react-i18next";
 export default function PageLayout() {
   const { i18n } = useTranslation();
 
-  const [locale, setLocale] = useState(localStorage.getItem("i18nextLng") || "en");
+  const [local, setLocal] = useState(localStorage.getItem("i18nextLng") || "en");
 
-  function changeLanguage(language: string) {
-    if (language == "ar") {
-      setLocale("ar");
-      i18n.changeLanguage("ar");
-    } else if (language == "en") {
-      setLocale("en");
-      i18n.changeLanguage("en");
+  function changeLanguage(language: string): void {
+    switch (language) {
+      case "ar":
+        setLocal("ar");
+        i18n.changeLanguage("ar");
+        break;
+      default:
+        setLocal("en");
+        i18n.changeLanguage("en");
+        break;
     }
   }
-  
+
   return (
-    <div dir={locale === "ar" ? "rtl" : "ltr"}>
-      <Banner locale={locale} changeLanguage={changeLanguage} />
+    <div dir={local === "ar" ? "rtl" : "ltr"} className="bg-white">
+      <Banner changeLanguage={changeLanguage} local={local} />
       <Header />
+
       <Outlet />
+
       <Footer />
     </div>
   );

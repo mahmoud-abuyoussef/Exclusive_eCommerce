@@ -1,7 +1,3 @@
 export default function Footer() {
-  return (
-    <header>
-      <div className="container flex">Footer</div>
-    </header>
-  );
+  return <p>Footer Section</p>;
 }
