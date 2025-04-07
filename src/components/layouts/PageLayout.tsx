@@ -1,4 +1,4 @@
-import Banner from "./Banner";
+import TopHeader from "./TopHeader";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function PageLayout() {
 
   return (
     <div dir={local === "ar" ? "rtl" : "ltr"} className="bg-white">
-      <Banner changeLanguage={changeLanguage} local={local} />
+      <TopHeader changeLanguage={changeLanguage} local={local} />
       <Header />
 
       <Outlet />
