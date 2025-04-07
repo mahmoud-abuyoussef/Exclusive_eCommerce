@@ -2,6 +2,7 @@ import { GrCart } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
+
 export default function Header() {
   const navLinks = [
     { name: "Home", path: "/" },
