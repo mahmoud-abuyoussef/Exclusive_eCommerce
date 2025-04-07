@@ -1,7 +1,7 @@
-import TopHeader from "./TopHeader";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
+import TopHeader from "./TopHeader";
 import { Outlet } from "react-router";
 import { useTranslation } from "react-i18next";
 
@@ -27,7 +27,7 @@ export default function PageLayout() {
     <div dir={local === "ar" ? "rtl" : "ltr"} className="bg-white">
       <TopHeader changeLanguage={changeLanguage} local={local} />
 
-      <Header />
+      <Header local={local} />
 
       <Outlet />
 
