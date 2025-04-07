@@ -1,5 +1,11 @@
+import { useState } from "react";
+import { LuUser } from "react-icons/lu";
 import { GrCart } from "react-icons/gr";
+import { CiLogout } from "react-icons/ci";
+import { BsXCircle } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
+import { FaRegStar } from "react-icons/fa";
+import { LuPackage2 } from "react-icons/lu";
 import { FaRegHeart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 
@@ -11,12 +17,15 @@ export default function Header() {
     { name: "Sign Up", path: "/signup" },
   ];
 
+  const [showProfile, setShowProfle] = useState(false);
+
   return (
     <header>
-      <div className="container m-auto flex items-center justify-between py-10">
+      <div className="container px-5 m-auto flex items-center justify-between py-10">
         <Link to={"/"} className="font-bold text-2xl tracking-[3%]">
           Exclusive
         </Link>
+
         <nav>
           <ul className="flex gap-5">
             {navLinks.map((link) => (
@@ -40,11 +49,52 @@ export default function Header() {
           </div>
 
           <div>
-            <FaRegHeart />
+            <FaRegHeart className="cursor-pointer" />
           </div>
 
           <div>
-            <GrCart />
+            <GrCart className="cursor-pointer" />
+          </div>
+
+          <div className="relative">
+            <LuUser
+              onClick={() => setShowProfle((state) => !state)}
+              className="bg-[#db4444] w-[32px] h-[32px] text-white p-1 text-2xl rounded-full cursor-pointer"
+            />
+            {showProfile && (
+              <div className="w-[224px] h-[208px] rounded absolute right-0 top-[40px] bg-[#0000000a] backdrop-blur-2xl p-2">
+                <ul className="gap-[13px]">
+                  <li className="mb-3 mt-3">
+                    <Link to={"/"} className="flex items-center gap-3 text-white">
+                      <LuUser />
+                      <span>Manage My Account</span>
+                    </Link>
+                  </li>
+                  <li className="mb-3">
+                    <Link to={"/"} className="flex items-center gap-3 text-white">
+                      <LuPackage2 />
+                      <span>My Order</span>
+                    </Link>
+                  </li>
+                  <li className="mb-3">
+                    <Link to={"/"} className="flex items-center gap-3 text-white">
+                      <BsXCircle />
+                      <span>My Collections</span>
+                    </Link>
+                  </li>
+                  <li className="mb-3">
+                    <Link to={"/"} className="flex items-center gap-3 text-white">
+                      <FaRegStar />
+                      <span>My Reviews</span>
+                    </Link>
+                  </li>
+                  <li className="flex items-center gap-3 mb-3 text-white cursor-pointer">
+                    <CiLogout />
+                    <button className="cursor-pointer">Logout</button>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
