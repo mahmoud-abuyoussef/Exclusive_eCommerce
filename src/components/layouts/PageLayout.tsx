@@ -26,6 +26,7 @@ export default function PageLayout() {
   return (
     <div dir={local === "ar" ? "rtl" : "ltr"} className="bg-white">
       <TopHeader changeLanguage={changeLanguage} local={local} />
+
       <Header />
 
       <Outlet />

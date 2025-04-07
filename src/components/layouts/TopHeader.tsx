@@ -6,11 +6,11 @@ interface PropsTypes {
   local: string;
 }
 
-export default function Banner({ changeLanguage, local }: PropsTypes) {
+export default function TopHeader({ changeLanguage, local }: PropsTypes) {
   const { t } = useTranslation();
   return (
     <section className="bg-black">
-      <div className="container m-auto  h-[48px] flex items-center justify-around">
+      <div className="container m-auto flex-wrap p-5 flex items-center justify-around">
         <p>
           <span className="text-white text-2xl text-[14px]">
             {t("Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!")}
