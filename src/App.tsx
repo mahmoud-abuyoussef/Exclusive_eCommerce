@@ -21,6 +21,8 @@ function App() {
             <Route path="/wishlist" element={<Home />} />
             <Route path="/privacy" element={<Home />} />
             <Route path="/faq" element={<Home />} />
+            <Route path="/terms" element={<Home />} />
+            <Route path="/shop" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>
