@@ -36,15 +36,15 @@ export default function Header({ local }: { local: string }) {
         </Link>
 
         <nav className="relative">
-          <FaBars className="md:hidden text-2xl cursor-pointer" />
+          <FaBars className="lg:hidden text-2xl cursor-pointer" />
 
           <ul
-            className={`absolute ${
+            className={`${
               local === "ar" ? "left-0" : "right-0"
-            } w-[200px] md:w-fit bg-black md:bg-transparent text-white md:text-black p-5 md:static md:flex md:items-center md:gap-5`}
+            } absolute w-[200px] lg:w-fit bg-black lg:bg-transparent text-white lg:text-black p-5 lg:static lg:flex lg:items-center lg:gap-5 rounded`}
           >
             {navLinks.map((link) => (
-              <li key={link.name} className="mb-5 md:mb-0">
+              <li key={link.name} className="mb-5 lg:mb-0">
                 <NavLink
                   to={link.path}
                   className={({ isActive }) =>
@@ -58,7 +58,7 @@ export default function Header({ local }: { local: string }) {
           </ul>
         </nav>
 
-        <div className="hidden md:flex md:items-center md:gap-5">
+        <div className="hidden lg:flex md:items-center md:gap-5">
           <div className="flex items-center gap-2 bg-[#f5f5f5] p-3 rounded-md">
             <input type="text" placeholder={t("What are you looking for?")} className="outline-0" />
             <IoSearch className="text-2xl" />
