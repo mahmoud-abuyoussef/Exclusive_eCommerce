@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 import { VscSend } from "react-icons/vsc";
 import { FiTwitter } from "react-icons/fi";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { BiLogoFacebook } from "react-icons/bi";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   const { t } = useTranslation();
