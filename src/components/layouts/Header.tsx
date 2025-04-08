@@ -30,7 +30,7 @@ export default function Header({ local }: { local: string }) {
 
   return (
     <header className="border-2 border-gray-200">
-      <div className="container m-auto py-10 px-5  flex items-center justify-between">
+      <div className="container m-auto py-5 px-5  flex items-center justify-between">
         <Link to={"/"} className="font-bold text-2xl">
           {t("Exclusive")}
         </Link>
