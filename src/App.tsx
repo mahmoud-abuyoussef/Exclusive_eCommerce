@@ -16,6 +16,11 @@ function App() {
             <Route path="/orders" element={<Home />} />
             <Route path="/collections" element={<Home />} />
             <Route path="/reviews" element={<Home />} />
+            <Route path="/cart" element={<Home />} />
+            <Route path="/login" element={<Home />} />
+            <Route path="/wishlist" element={<Home />} />
+            <Route path="/privacy" element={<Home />} />
+            <Route path="/faq" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>
