@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { GrCart } from "react-icons/gr";
-import { LuUser } from "react-icons/lu";
 import { CiLogout } from "react-icons/ci";
-import { FaRegStar } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
-import { LuPackage2 } from "react-icons/lu";
 import { Link, NavLink } from "react-router";
 import { useTranslation } from "react-i18next";
 import { FaRegCircleXmark } from "react-icons/fa6";
+import { LuUser, LuPackage2 } from "react-icons/lu";
+import { FaRegStar, FaRegHeart } from "react-icons/fa";
 
 interface NavLinks {
   name: string;
@@ -18,6 +16,8 @@ interface NavLinks {
 
 export default function Header({ local }: { local: string }) {
   const { t } = useTranslation();
+
+  const [showMenu, setShowMenu] = useState(false);
 
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
@@ -28,6 +28,10 @@ export default function Header({ local }: { local: string }) {
     { name: "Sign Up", path: "/signup" },
   ];
 
+  const showMenuStyle = showMenu ? "block" : "hidden";
+
+  const direction = local === "ar" ? "left-0" : "right-0";
+
   return (
     <header className="border-2 border-gray-200">
       <div className="container m-auto py-5 px-5  flex items-center justify-between">
@@ -36,12 +40,13 @@ export default function Header({ local }: { local: string }) {
         </Link>
 
         <nav className="relative">
-          <FaBars className="lg:hidden text-2xl cursor-pointer" />
+          <FaBars
+            onClick={() => setShowMenu((state) => !state)}
+            className="lg:hidden text-2xl cursor-pointer"
+          />
 
           <ul
-            className={`${
-              local === "ar" ? "left-0" : "right-0"
-            } absolute w-[200px] lg:w-fit bg-black lg:bg-transparent text-white lg:text-black p-5 lg:static lg:flex lg:items-center lg:gap-5 rounded`}
+            className={`${direction} ${showMenuStyle} absolute w-[200px] lg:w-fit bg-black lg:bg-transparent text-white lg:text-black p-5 lg:static lg:flex lg:items-center lg:gap-5 rounded`}
           >
             {navLinks.map((link) => (
               <li key={link.name} className="mb-5 lg:mb-0">
