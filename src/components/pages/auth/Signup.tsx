@@ -72,7 +72,7 @@ export default function Signup() {
                   {t("Already have account?")}{" "}
                   <Link to={"/login"} className="border-b border-gray-500">
                     {" "}
-                    Log in
+                    {t("Login")}
                   </Link>
                 </p>
               </div>
