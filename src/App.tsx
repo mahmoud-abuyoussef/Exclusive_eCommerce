@@ -1,4 +1,5 @@
 import Home from "./components/pages/Home";
+import Login from "./components/pages/auth/Login";
 import Signup from "./components/pages/auth/Signup";
 import PageLayout from "./components/layouts/PageLayout";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -13,12 +14,14 @@ function App() {
             <Route path="/contact" element={<Home />} />
             <Route path="/about" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forget-password" element={<Login />} />
+
             <Route path="/account" element={<Home />} />
             <Route path="/orders" element={<Home />} />
             <Route path="/collections" element={<Home />} />
             <Route path="/reviews" element={<Home />} />
             <Route path="/cart" element={<Home />} />
-            <Route path="/login" element={<Home />} />
             <Route path="/wishlist" element={<Home />} />
             <Route path="/privacy" element={<Home />} />
             <Route path="/faq" element={<Home />} />
