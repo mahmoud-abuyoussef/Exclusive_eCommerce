@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export default function Signup() {
   const { t } = useTranslation();
@@ -80,12 +80,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-
-      {/*                <div className="my-12 border-b text-center">
-                <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                  Or sign up with e-mail
-                </div>
-              </div>             */}
     </div>
   );
 }
