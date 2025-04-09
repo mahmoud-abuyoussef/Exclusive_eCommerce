@@ -15,13 +15,13 @@ export default function Signup() {
           />
         </div>
 
-        <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-          <div className="mt-12 flex flex-col items-center">
+        <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12 flex items-center justify-center">
+          <div className="ml-12">
             <h1 className="text-2xl xl:text-3xl font-extrabold">{t("Create an account")}</h1>
-            <p className="mt-5 -ml-20">{t("Enter your details below")}</p>
+            <p className="mt-5">{t("Enter your details below")}</p>
 
             <div className="w-full flex-1 mt-8">
-              <div className="mx-auto max-w-xs">
+              <div className="max-w-xs">
                 <input
                   className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm "
                   type="email"
