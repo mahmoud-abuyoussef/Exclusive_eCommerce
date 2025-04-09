@@ -1,4 +1,5 @@
 import Home from "./components/pages/Home";
+import Signup from "./components/pages/auth/Signup";
 import PageLayout from "./components/layouts/PageLayout";
 import { BrowserRouter, Route, Routes } from "react-router";
 
@@ -11,7 +12,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Home />} />
             <Route path="/about" element={<Home />} />
-            <Route path="/signup" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/account" element={<Home />} />
             <Route path="/orders" element={<Home />} />
             <Route path="/collections" element={<Home />} />
