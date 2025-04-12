@@ -4,6 +4,7 @@ import { useState } from "react";
 import TopHeader from "./TopHeader";
 import { Outlet } from "react-router";
 import { useTranslation } from "react-i18next";
+import { ToastContainer } from "react-toastify";
 
 export default function PageLayout() {
   const { i18n } = useTranslation();
@@ -25,6 +26,7 @@ export default function PageLayout() {
 
   return (
     <div dir={local === "ar" ? "rtl" : "ltr"} className="bg-white">
+      <ToastContainer />
       <TopHeader changeLanguage={changeLanguage} local={local} />
 
       <Header local={local} />

@@ -11,12 +11,11 @@ function App() {
         <Routes>
           <Route element={<PageLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Home />} />
-            <Route path="/about" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/forget-password" element={<Login />} />
-
+            <Route path="/about" element={<Home />} />
+            <Route path="/contact" element={<Home />} />
+            <Route path="/forget-password" element={<Home />} />
             <Route path="/account" element={<Home />} />
             <Route path="/orders" element={<Home />} />
             <Route path="/collections" element={<Home />} />
