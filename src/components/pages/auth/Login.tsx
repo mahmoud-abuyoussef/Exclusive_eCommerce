@@ -22,22 +22,12 @@ export default function Login() {
 
             <div className="w-full flex-1 mt-8">
               <div className="mx-auto max-w-xs">
-                <input
-                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm "
-                  type="email"
-                  placeholder={t("Email or Phone Number")}
-                />
+                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm " type="email" placeholder={t("Email or Phone Number")} />
 
-                <input
-                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500"
-                  type="password"
-                  placeholder={t("Password")}
-                />
+                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500" type="password" placeholder={t("Password")} />
 
                 <div className="flex items-center justify-between mt-5 gap-5">
-                  <button className="tracking-wide bg-[#DB4444] text-gray-100 w-25 py-4 rounded cursor-pointer">
-                    {t("Login")}
-                  </button>
+                  <button className="tracking-wide bg-[#DB4444] text-gray-100 w-25 py-4 rounded cursor-pointer">{t("Login")}</button>
 
                   <Link to={"/forget-password"} className="text-[#DB4444]">
                     {t("Forget Password?")}
