@@ -1,46 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router";
-import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-
-interface User {
-  firstName?: string;
-  lastName?: string;
-  name: string;
-  emailOrPhone: string;
-  password: string;
-  address?: string;
-  orders?: [];
-  reviews?: [];
-  collections?: [];
-}
+import { Link } from "react-router";
 
 export default function Signup() {
   const { t } = useTranslation();
-
-  const [users, setUsers] = useState<User[]>(JSON.parse(localStorage.getItem("Users") || "[]"));
-
-  const [formInputs, setFormInputs] = useState<User>({
-    firstName: "",
-    lastName: "",
-    name: "",
-    emailOrPhone: "",
-    password: "",
-    address: "",
-    orders: [],
-    reviews: [],
-    collections: [],
-  });
-
-  function signup() {
-    setUsers([...users, formInputs]);
-
-    localStorage.setItem("Users", JSON.stringify([...users, formInputs]));
-
-    toast.success("Account Register Success");
-
-    setFormInputs({ ...formInputs, name: "", emailOrPhone: "", password: "" });
-  }
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
@@ -60,39 +22,10 @@ export default function Signup() {
             <p className="mt-5">{t("Enter your details below")}</p>
 
             <div className="w-full flex-1 mt-8">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  signup();
-                }}
-                className="max-w-xs"
-              >
-                <input
-                  value={formInputs.name}
-                  onChange={(e) => setFormInputs({ ...formInputs, name: e.target.value })}
-                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm "
-                  type="text"
-                  required
-                  placeholder={t("Name")}
-                  minLength={1}
-                />
-                <input
-                  value={formInputs.emailOrPhone}
-                  onChange={(e) => setFormInputs({ ...formInputs, emailOrPhone: e.target.value })}
-                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm "
-                  type="email"
-                  required
-                  placeholder={t("Email or Phone Number")}
-                />
-                <input
-                  value={formInputs.password}
-                  onChange={(e) => setFormInputs({ ...formInputs, password: e.target.value })}
-                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500"
-                  type="password"
-                  minLength={8}
-                  required
-                  placeholder={t("Password")}
-                />
+              <form className="max-w-xs">
+                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm " type="text" required placeholder={t("Name")} minLength={1} />
+                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm" type="email" placeholder={t("Email or Phone Number")} />
+                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500" type="password" placeholder={t("Password")} />
 
                 <button className="mt-5 tracking-wide bg-[#DB4444] text-gray-100 w-full py-4 rounded cursor-pointer">{t("Create Account")}</button>
 
