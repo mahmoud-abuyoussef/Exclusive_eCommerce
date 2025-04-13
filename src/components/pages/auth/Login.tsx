@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from "react-router";
 
 interface FormInputs {
   emailOrPhone?: string;
@@ -21,9 +21,21 @@ interface User {
 }
 
 export default function Login() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
+  function checkIsUserLoggedIn() {
+    console.log("Call checkIsUserLogedIn");
+    if (localStorage.getItem("UserId")) {
+      console.log("UserId Exist");
+      navigate("/");
+    }
+  }
+
+  setTimeout(() => {
+    checkIsUserLoggedIn();
+  }, 1000);
 
   const [formInputs, setFormInputs] = useState<FormInputs>({ emailOrPhone: "", password: "" });
 
