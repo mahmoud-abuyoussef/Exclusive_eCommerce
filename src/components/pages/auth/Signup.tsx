@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 
 interface User {
+  id: string;
   firstName?: string;
   lastName?: string;
   name: string;
@@ -20,7 +22,7 @@ export default function Signup() {
 
   const { t } = useTranslation();
 
-  const [formInputs, setFormInputs] = useState<User>({ firstName: "", lastName: "", name: "", emailOrPhone: "", password: "", address: "", order: [], reviews: [], collections: [] });
+  const [formInputs, setFormInputs] = useState<User>({ id: uuidv4(), firstName: "", lastName: "", name: "", emailOrPhone: "", password: "", address: "", order: [], reviews: [], collections: [] });
 
   const [users, setUsers] = useState<User[]>(JSON.parse(localStorage.getItem("Users") || "[]"));
 
