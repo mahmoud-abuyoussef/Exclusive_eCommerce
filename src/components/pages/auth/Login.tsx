@@ -1,8 +1,47 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 
+interface FormInputs {
+  emailOrPhone?: string;
+  password?: string;
+}
+
+interface User {
+  id: string;
+  firstName?: string;
+  lastName?: string;
+  name?: string;
+  emailOrPhone?: string;
+  password?: string;
+  address?: string;
+  order?: [];
+  reviews?: [];
+  collections?: [];
+}
+
 export default function Login() {
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
+
+  const [formInputs, setFormInputs] = useState<FormInputs>({ emailOrPhone: "", password: "" });
+
+  function login() {
+    const users: User[] = JSON.parse(localStorage.getItem("Users") || "[]");
+
+    const userExist = users.find((user: User) => {
+      if (user.emailOrPhone === formInputs.emailOrPhone && user.password === formInputs.password) {
+        localStorage.setItem("UserId", user.id);
+        return user;
+      }
+    });
+
+    if (userExist) {
+      navigate("/");
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center ">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -21,10 +60,32 @@ export default function Login() {
             <p className="mt-5">{t("Enter your details below")}</p>
 
             <div className="w-full flex-1 mt-8">
-              <div className="mx-auto max-w-xs">
-                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm " type="email" placeholder={t("Email or Phone Number")} />
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  login();
+                }}
+                className="mx-auto max-w-xs"
+              >
+                <input
+                  value={formInputs.emailOrPhone}
+                  onChange={(e) => setFormInputs({ ...formInputs, emailOrPhone: e.target.value })}
+                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500 text-sm "
+                  type="email"
+                  required
+                  minLength={1}
+                  placeholder={t("Email or Phone Number")}
+                />
 
-                <input className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500" type="password" placeholder={t("Password")} />
+                <input
+                  value={formInputs.password}
+                  onChange={(e) => setFormInputs({ ...formInputs, password: e.target.value })}
+                  className="w-full py-4 font-medium outline-0 border-b border-gray-200 placeholder-gray-500"
+                  type="password"
+                  required
+                  minLength={8}
+                  placeholder={t("Password")}
+                />
 
                 <div className="flex items-center justify-between mt-5 gap-5">
                   <button className="tracking-wide bg-[#DB4444] text-gray-100 w-25 py-4 rounded cursor-pointer">{t("Login")}</button>
@@ -33,7 +94,7 @@ export default function Login() {
                     {t("Forget Password?")}
                   </Link>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
