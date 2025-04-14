@@ -41,5 +41,7 @@
   "Password": "كلمة السر",
   "Sign Up with Google": "سجل باستخدام جوجل",
   "Log in to Exclusive": "سجل دخول الي حصري",
-  "Forget Password?": "نسيت كملة السر؟"
+  "Forget Password?": "نسيت كملة السر؟",
+  "Login Success": "تم تسجيل الدخول",
+  "Email or Password is invalid": "الايميل او كلمة السر غير صحيحين"
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router";
 
@@ -26,9 +27,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   function checkIsUserLoggedIn() {
-    console.log("Call checkIsUserLogedIn");
     if (localStorage.getItem("UserId")) {
-      console.log("UserId Exist");
       navigate("/");
     }
   }
@@ -50,7 +49,11 @@ export default function Login() {
     });
 
     if (userExist) {
+      toast.success(t("Login Success"));
       navigate("/");
+    } else {
+      setFormInputs({ emailOrPhone: "", password: "" });
+      toast.error(t("Email or Password is invalid"));
     }
   }
 
