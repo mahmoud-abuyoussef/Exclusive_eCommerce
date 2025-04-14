@@ -8,6 +8,7 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 import { LuUser, LuPackage2 } from "react-icons/lu";
 import { FaRegStar, FaRegHeart } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 interface NavLinks {
   name: string;
@@ -40,6 +41,7 @@ export default function Header({ local }: { local: string }) {
   function logout() {
     localStorage.removeItem("UserId");
     navigate("/login");
+    toast.success(t("Logout Success"));
   }
 
   return (
