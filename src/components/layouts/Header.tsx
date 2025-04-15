@@ -82,7 +82,7 @@ export default function Header({ local }: { local: string }) {
           </div>
 
           {user && (
-            <div className="relative">
+            <div className="relative z-50">
               <LuUser onClick={() => setShowProfileMenu((state) => !state)} className="text-2xl bg-[#DB4444] w-[32px] h-[32px] text-white p-2 rounded-full cursor-pointer" />
               {showProfileMenu && (
                 <div className="absolute right-0 w-[224px] bg-white text-black p-5 rounded-md shadow-lg">
