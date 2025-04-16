@@ -6,6 +6,7 @@ export default function HeroSlider() {
     { src: "/images/slider.png", alt: "slide description" },
     { src: "/images/bag.png", alt: "slide description" },
     { src: "/images/camera.png", alt: "slide description" },
+    { src: "/images/camera.png", alt: "slide description" },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(Math.trunc(slides.length / 2));
@@ -20,7 +21,7 @@ export default function HeroSlider() {
         <div className="wrapper relative">
           <div className="slides flex overflow-hidden bg-black rounded">
             <div className="slide min-w-[100%] p-2">
-              <img className="min-w-[100%] h-[200px]" src={slides[currentSlide].src} alt={slides[currentSlide].alt} />
+              <img className="min-w-[100%] h-[400px]" src={slides[currentSlide].src} alt={slides[currentSlide].alt} />
             </div>
           </div>
 
