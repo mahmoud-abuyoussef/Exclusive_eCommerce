@@ -7,14 +7,27 @@ interface dateTime {
   seconds: number;
 }
 
-export default function CountDown() {
-  if (!localStorage.getItem("targetDateTime")) {
+export default function CountDown({ targetDate }: { targetDate: dateTime }) {
+  const targetId = Number(localStorage.getItem("id")) || 1;
+
+  const setTargetIdDateTime = `targetDateTime_${targetId}`;
+
+  let updateTargetId = targetId;
+
+  updateTargetId = targetId + 1;
+
+  if (localStorage.getItem("id") && targetId < updateTargetId) {
     const targetDateTime = new Date();
-    targetDateTime.setDate(targetDateTime.getDate() + 3);
-    targetDateTime.setHours(targetDateTime.getHours() + 23);
-    targetDateTime.setMinutes(targetDateTime.getMinutes() + 19);
-    targetDateTime.setSeconds(targetDateTime.getSeconds() + 56);
-    localStorage.setItem("targetDateTime", JSON.stringify(targetDateTime.getTime()));
+    targetDateTime.setDate(targetDateTime.getDate() + targetDate.day);
+    targetDateTime.setHours(targetDateTime.getHours() + targetDate.hours);
+    targetDateTime.setMinutes(targetDateTime.getMinutes() + targetDate.minutes);
+    targetDateTime.setSeconds(targetDateTime.getSeconds() + targetDate.seconds);
+
+    localStorage.setItem(setTargetIdDateTime, JSON.stringify(targetDateTime.getTime()));
+
+    localStorage.setItem("id", `${updateTargetId}`);
+  } else {
+    localStorage.setItem("id", "1");
   }
 
   let diffrentDate: number = 0;
@@ -22,7 +35,7 @@ export default function CountDown() {
   function countDownCalculator(): dateTime {
     const dateNow = new Date().getTime();
 
-    const getDateTimeFromLocalStorage = localStorage.getItem("targetDateTime");
+    const getDateTimeFromLocalStorage = localStorage.getItem(setTargetIdDateTime);
 
     diffrentDate = Number(getDateTimeFromLocalStorage) - dateNow;
 
@@ -41,7 +54,7 @@ export default function CountDown() {
         seconds: Math.floor((diffrentDate / 1000) % 60),
       };
     } else {
-      localStorage.removeItem("targetDateTime");
+      localStorage.removeItem(setTargetIdDateTime);
     }
 
     return dateTime;
